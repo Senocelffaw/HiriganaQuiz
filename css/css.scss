@@ -1,0 +1,74 @@
+.myCanvas{
+    border: 0px none black;
+}
+
+canvas{
+    margin: auto;
+    border: 2px solid black;
+}
+
+
+.redBorder{
+    border: 2px solid red;
+}
+
+.greenBorder{
+    border: 2px solid rgb(109, 255, 109);
+}
+
+.sidebar {
+    width: 200px;
+    background: black;
+    position: fixed;
+    height: 100%;
+    transition: 0.2s;
+    font-size: 25px;
+    margin-left: -200px;
+    transition: 0.5s;
+    z-index: 999;
+    a {
+        display:block;
+        margin: auto;
+        color: white;
+        padding: 8px 8px 8px 8px;
+        text-align: left;
+        float: left;
+        clear: left;
+    }
+    .closebtn{
+        float: right;
+        clear: right;
+        margin: 0;
+    }
+}
+
+#toggleSidebar{
+    margin-top: 10px;
+    margin-left: 20px;
+    border: none;
+    background-color: inherit;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 50;
+}
+  
+.closeSidebar{
+    margin-left: -200px;
+}
+
+.openSidebar{
+    margin-left: 0px;
+} 
+
+.floatRight{
+    float:right;
+    clear:right;
+}
+
+@media screen and (max-width: 460px) {
+
+    #toggleSidebar{
+        margin:0;
+    }
+  }

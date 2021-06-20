@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/css.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+        <nav id="mySideBar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" id="closeSidebar">&times;</a>
+            <div class="mt-5" id="sets">
+            </div>
+        </nav>
+
+        <button id="toggleSidebar">☰</button>
+
+        <div id = "main" class="container d-flex align-items-center justify-content-center vh-100">
+            <div class="col-12">
+                <div class="row justify-content-center mb-3">
+                    <canvas id="japanese-text"  class="col-8 col-md-9 col-lg-6 col-sm-10"></canvas>
+                </div>
+
+                <div class="w-75 m-auto">
+                    <div class="d-flex no-wrap">
+                        <input type="file" class="md-2" id="data">
+                        <input type="button" value="Next Question" class="ml-auto" id="reset_Question">
+                    </div>
+                </div>
+                
+                <div class="mt-3 d-flex ">
+                    <div id="choices" class="d-flex flex-wrap w-100 align-items-center justify-content-center">
+                        <canvas class="choice mx-2 my-2 col-5 col-md-2" ></canvas>
+                        <canvas class="choice mx-2 my-2 col-5 col-md-2" ></canvas>
+                        <canvas class="choice mx-2 my-2 col-5 col-md-2" ></canvas>
+                        <canvas class="choice mx-2 my-2 col-5 col-md-2" ></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../js/app.js"></script>
+</body>
+</html>
