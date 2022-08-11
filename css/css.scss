@@ -40,6 +40,17 @@ canvas{
         clear: right;
         margin: 0;
     }
+    .options{
+        &:hover{
+            color: white;
+        }
+        color: grey;
+
+    }
+    ul{
+        display: inline;
+        list-style-type: none;
+    }
 }
 
 #toggleSidebar{

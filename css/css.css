@@ -45,6 +45,19 @@ canvas {
   margin: 0;
 }
 
+.sidebar .options {
+  color: grey;
+}
+
+.sidebar .options:hover {
+  color: white;
+}
+
+.sidebar ul {
+  display: inline;
+  list-style-type: none;
+}
+
 #toggleSidebar {
   margin-top: 10px;
   margin-left: 20px;

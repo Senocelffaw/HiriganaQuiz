@@ -6,24 +6,31 @@ export default class FlashCardController{
 
     canvasText;
     DOMArray;
-    theData;
+    inputArray;
     choices = [];
     numOfChoices = 4;
 
 
 
-    constructor(canvasDOMArray, bigCanvas, data){
+    constructor(canvasDOMArray, bigCanvas, textFileData){
         this.canvasText = new canvastext(bigCanvas);
         this.DOMArray = canvasDOMArray;
-        this.theData = new DataInput(data);
+        this.inputArray = new DataInput(textFileData);
         for(var i = 0; i < this.numOfChoices; i++){
             this.DOMArray[i].addEventListener("click", e =>{
                 this.checkAnswer(e);
             });
             this.choices[i] = new Choice(canvasDOMArray[i]);
         }
-
     }
+
+    changeQuestions(text){
+        this.inputArray.loadNewQuestions(text);
+    }
+
+    loadXQuestions(text, start, end){
+        this.inputArray.loadXQuestions(text, start, end);
+    };
 
     setAll(text){
         for(var i = 0; i < this.numOfChoices; i++){
@@ -32,7 +39,7 @@ export default class FlashCardController{
     }
 
     changeQuestion(){
-        var questions = this.theData.getQuestion();
+        var questions = this.inputArray.getQuestion();
         var random = this.getRand(this.choices.length) + 1;
 
         questions = this.swap(questions, 1, random);
@@ -74,5 +81,9 @@ export default class FlashCardController{
             this.DOMArray[i].classList.remove("redBorder");
             this.DOMArray[i].classList.remove("greenBorder");
         }
+    }
+
+    isLoaded(){
+        return (this.inputArray.isLoaded());
     }
 }

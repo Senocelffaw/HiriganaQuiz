@@ -5,27 +5,49 @@ export default class DataInput{
     numQuestions;
 
     constructor(fileInputDom){
-        this.input = fileInputDom;
+        if(fileInputDom === undefined){
 
-        this.input.addEventListener('change', (e)=>{
-            this.questions = [];
-            this.readFile(this.loadQuestions);
+        }
+        else{
+            this.input = fileInputDom;
+            this.input.addEventListener('change', (e)=>{
+                this.questions = [];
+                this.readFile(this.input.files[0]);
         });
+        }
     }
 
-    readFile(){
+
+    isLoaded(){
+        if(this.questions.length > 0){
+            return true;
+        }
+        return false;
+    }
+
+    readFile(textFile){
         var reader=new FileReader();
+        reader.readAsText(textFile);
         reader.onload = e =>{
             var temp = reader.result.split("\n");
             this.numQuestions = temp.length;
             this.loadQuestions(temp);
         }
-        reader.readAsText(this.input.files[0]);
+    }
+
+    loadXQuestions(text, start, end){
+        this.loadNewQuestions(text);
+        this.questions = this.questions.slice(start, end);
+    }
+
+    loadNewQuestions(text){
+        this.questions = [];
+        this.loadQuestions(text.split('\n'));
     }
 
     //Loads the question/answer pairs into the "questions" array
     loadQuestions(temp){
-        for(let i = 0; i < temp.length; i++){
+        for(let i = 0; i < temp.length - 1; i++){
             var temptemp = [];
             temptemp = temp[i].split(",");
             this.questions.push([temptemp[0].trim(), temptemp[1].trim()]);
